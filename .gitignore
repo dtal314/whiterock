@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+_NO_SYNC/
+data/cache/
+data/models/
+site/assets/logo_raw.png
+*.log
+.env

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WhiteRock</title>
+<meta name="description" content="WhiteRock: political-market intelligence from public records. Which companies are positioned around emerging U.S. government actions, who has traded them, and how likely a related disclosure is.">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="app.css?v=0.1.0">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <img src="assets/logo-192.png" alt="" width="44" height="44">
+    <div>
+      <h1>WhiteRock</h1>
+      <p class="tag">Political-market intelligence from public records</p>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="actions" role="tab">Actions</button>
+    <button class="tab" data-tab="companies" role="tab">Companies</button>
+    <button class="tab" data-tab="politicians" role="tab">Politicians</button>
+    <button class="tab" data-tab="sectors" role="tab">Sectors</button>
+    <button class="tab" data-tab="model" role="tab">Model and data</button>
+  </nav>
+  <div class="meta" id="meta">Loading data</div>
+</header>
+
+<div class="notice" id="disclaimer"></div>
+
+<main>
+  <section id="panel-actions" class="panel active">
+    <div class="toolbar">
+      <input id="q-actions" type="search" placeholder="Search actions, agencies, tickers" aria-label="Search actions">
+      <select id="f-sector"><option value="">All sectors</option></select>
+      <select id="f-direction">
+        <option value="">Benefit and suffer</option>
+        <option value="1">Benefit</option>
+        <option value="-1">Suffer</option>
+        <option value="0">Unclear</option>
+      </select>
+      <label class="check"><input type="checkbox" id="f-forthcoming"> Forthcoming only</label>
+      <span class="count" id="count-actions"></span>
+    </div>
+    <div id="actions-list" class="cards"></div>
+  </section>
+
+  <section id="panel-companies" class="panel">
+    <div class="toolbar">
+      <input id="q-companies" type="search" placeholder="Search ticker or sector" aria-label="Search companies">
+      <span class="count" id="count-companies"></span>
+    </div>
+    <div class="table-wrap"><table id="companies-table" class="grid"></table></div>
+  </section>
+
+  <section id="panel-politicians" class="panel">
+    <div class="toolbar">
+      <input id="q-pols" type="search" placeholder="Search name, state, committee" aria-label="Search politicians">
+      <select id="f-chamber">
+        <option value="">Both chambers</option>
+        <option value="house">House</option>
+        <option value="senate">Senate</option>
+        <option value="executive">Executive</option>
+      </select>
+      <select id="f-pol-sector"><option value="">Rank by overall activity</option></select>
+      <span class="count" id="count-pols"></span>
+    </div>
+    <div class="table-wrap"><table id="pols-table" class="grid"></table></div>
+    <div id="pol-detail" class="detail" hidden></div>
+  </section>
+
+  <section id="panel-sectors" class="panel">
+    <div id="sectors-list" class="cards"></div>
+  </section>
+
+  <section id="panel-model" class="panel">
+    <div id="model-content" class="prose"></div>
+  </section>
+</main>
+
+<footer>
+  <p>WhiteRock is an open research tool. Data: Federal Register API, U.S. House Clerk financial disclosures, U.S. Senate eFD, unitedstates/congress-legislators, market prices via yfinance. Forecasts describe the likelihood of future public disclosures and of benchmark-relative price moves. They are not recommendations.</p>
+</footer>
+
+<script src="app.js?v=0.1.0"></script>
+</body>
+</html>
