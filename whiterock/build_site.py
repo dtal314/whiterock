@@ -9,6 +9,8 @@ import pandas as pd
 from . import __version__, config
 from .features import sector_names
 from .mapping.universe import SECTORS, SECTOR_BY_ID, MARKET_BENCHMARK
+from .recommendations import update_ledger
+from .signals import build_signals
 from .util import write_json
 
 log = logging.getLogger(__name__)
@@ -118,8 +120,15 @@ def build(*, docs: list[dict], links: pd.DataFrame, tx: pd.DataFrame, roster: di
             "url": d.get("url"), "significant": bool(d.get("significant")), "forthcoming": bool(d.get("forthcoming")),
             "president": d.get("president"), "eo_number": d.get("eo_number"), "sectors": sectors_out,
         })
-    actions_out.sort(key=lambda a: (not a["forthcoming"], a["publication_date"] or ""), reverse=True)
-    actions_out.sort(key=lambda a: (a["publication_date"] or ""), reverse=True)
+    # Order: what matters most first. Presidential documents and significant rules
+    # outrank routine rules; within a tier, stronger sector links and newer dates first.
+    def _rank(a: dict) -> tuple:
+        tier = (3 if a["type"] == "PRESDOCU" else 0) + (2 if a["significant"] else 0) + (1 if a["forthcoming"] else 0)
+        strength = max((s["relevance"] for s in a["sectors"]), default=0.0) + 0.15 * len(a["sectors"])
+        return (tier, round(strength, 2), a["publication_date"] or "")
+    for a in actions_out:
+        a["rank_tier"] = (3 if a["type"] == "PRESDOCU" else 0) + (2 if a["significant"] else 0) + (1 if a["forthcoming"] else 0)
+    actions_out.sort(key=_rank, reverse=True)
 
     # ---- sectors
     sectors_out = []
@@ -184,6 +193,11 @@ def build(*, docs: list[dict], links: pd.DataFrame, tx: pd.DataFrame, roster: di
         },
         "sources": source_status,
     }
+    signals = build_signals(tx, links, live_events, disclosure_scores, pols)
+    signals["ledger"] = update_ledger(signals, prices)
+    write_json(config.SITE_DATA_DIR / "signals.json", signals)
+    summary["counts"]["buy_signals"] = len(signals["buy_signals"])
+    summary["counts"]["recommendations_open"] = signals["ledger"]["stats"]["n_open"]
     write_json(config.SITE_DATA_DIR / "summary.json", summary, indent=1)
     write_json(config.SITE_DATA_DIR / "actions.json", actions_out)
     write_json(config.SITE_DATA_DIR / "sectors.json", sectors_out)

@@ -17,6 +17,15 @@ person can use it, with a daily GitHub Actions data pipeline. Free Python only, 
 - The logo (black rock on white) came from the free Codex image lane
   (`tools/make_logo.py`); `tools/make_icons.py` derives the shipped sizes.
 
+## Recommendations (Dan's 2026-09-03 additions)
+
+Dan asked for "a simple page of recommended buys based on the pattern of congress people
+buying stocks", then "track the recommendations, how they perform, when you recommended
+it, amount to buy", and "call it recommendations". Implemented as `whiterock/signals.py`
+(ranking) + `whiterock/recommendations.py` (ledger in `data/recommendations.json`,
+$10,000 notional, conviction tiers, 60-trading-day hold, marked to benchmark daily).
+The ledger is append-only in practice: never delete or rewrite past entries.
+
 ## Layout
 
 - `whiterock/` package (sources, mapping, features, models, build_site, run_pipeline)

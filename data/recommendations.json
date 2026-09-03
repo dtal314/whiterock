@@ -1,0 +1,315 @@
+{
+ "notional": 10000,
+ "rules": {
+  "min_score": 0.6,
+  "max_open": 10,
+  "hold_trading_days": 60,
+  "tiers": [
+   {
+    "min_score": 0.8,
+    "amount": 1500
+   },
+   {
+    "min_score": 0.7,
+    "amount": 1000
+   },
+   {
+    "min_score": 0.0,
+    "amount": 500
+   }
+  ]
+ },
+ "entries": [
+  {
+   "id": 1,
+   "ticker": "MLM",
+   "sectors": [
+    "Construction and infrastructure"
+   ],
+   "benchmark": "XLI",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 511.95,
+   "benchmark_entry_price": 174.18,
+   "amount": 1500,
+   "shares": 2.93,
+   "score_at_rec": 0.839,
+   "why": {
+    "congress_90d": "3 buys / 0 sells by 1 members",
+    "buyers": [
+     "April McClain Delaney"
+    ],
+    "action_tailwind": 1.325,
+    "p_beat_60": 0.586,
+    "expected_buy_disclosures": 2.39
+   },
+   "last_date": "2026-09-03",
+   "last_price": 511.95,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1500.0,
+   "pnl": 0.0
+  },
+  {
+   "id": 2,
+   "ticker": "MS",
+   "sectors": [
+    "Banks and brokers"
+   ],
+   "benchmark": "XLF",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 216.3,
+   "benchmark_entry_price": 58.4599,
+   "amount": 1500,
+   "shares": 6.9348,
+   "score_at_rec": 0.815,
+   "why": {
+    "congress_90d": "2 buys / 0 sells by 2 members",
+    "buyers": [
+     "Alan Armstrong",
+     "Dan Newhouse"
+    ],
+    "action_tailwind": 0.425,
+    "p_beat_60": 0.5843,
+    "expected_buy_disclosures": 2.72
+   },
+   "last_date": "2026-09-03",
+   "last_price": 216.3,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1500.0,
+   "pnl": 0.0
+  },
+  {
+   "id": 3,
+   "ticker": "WFC",
+   "sectors": [
+    "Banks and brokers"
+   ],
+   "benchmark": "XLF",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 88.81,
+   "benchmark_entry_price": 58.4599,
+   "amount": 1500,
+   "shares": 16.89,
+   "score_at_rec": 0.81,
+   "why": {
+    "congress_90d": "2 buys / 0 sells by 2 members",
+    "buyers": [
+     "Alan Armstrong",
+     "Mitch McConnell"
+    ],
+    "action_tailwind": 0.425,
+    "p_beat_60": 0.5751,
+    "expected_buy_disclosures": 2.72
+   },
+   "last_date": "2026-09-03",
+   "last_price": 88.81,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1500.0,
+   "pnl": 0.0
+  },
+  {
+   "id": 4,
+   "ticker": "GILD",
+   "sectors": [
+    "Pharma and biotech"
+   ],
+   "benchmark": "XLV",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 150.6928,
+   "benchmark_entry_price": 173.05,
+   "amount": 1500,
+   "shares": 9.954,
+   "score_at_rec": 0.809,
+   "why": {
+    "congress_90d": "6 buys / 1 sells by 3 members",
+    "buyers": [
+     "Alan Armstrong",
+     "Jared Moskowitz",
+     "Tommy Tuberville"
+    ],
+    "action_tailwind": 0.675,
+    "p_beat_60": 0.461,
+    "expected_buy_disclosures": 4.12
+   },
+   "last_date": "2026-09-03",
+   "last_price": 150.6928,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1500.0,
+   "pnl": 0.0
+  },
+  {
+   "id": 5,
+   "ticker": "META",
+   "sectors": [
+    "Large technology platforms"
+   ],
+   "benchmark": "XLK",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 614.3296,
+   "benchmark_entry_price": 186.1662,
+   "amount": 1000,
+   "shares": 1.6278,
+   "score_at_rec": 0.791,
+   "why": {
+    "congress_90d": "8 buys / 4 sells by 6 members",
+    "buyers": [
+     "Alan Armstrong",
+     "John Boozman",
+     "Dan Crenshaw",
+     "Jared Moskowitz",
+     "John J. McGuire III",
+     "Michael A. Rulli"
+    ],
+    "action_tailwind": 0.0,
+    "p_beat_60": null,
+    "expected_buy_disclosures": 5.88
+   },
+   "last_date": "2026-09-03",
+   "last_price": 614.3296,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1000.0,
+   "pnl": 0.0
+  },
+  {
+   "id": 6,
+   "ticker": "DE",
+   "sectors": [
+    "Construction and infrastructure"
+   ],
+   "benchmark": "XLI",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 687.6801,
+   "benchmark_entry_price": 174.18,
+   "amount": 1000,
+   "shares": 1.4542,
+   "score_at_rec": 0.766,
+   "why": {
+    "congress_90d": "2 buys / 1 sells by 2 members",
+    "buyers": [
+     "Alan Armstrong",
+     "Julie Johnson"
+    ],
+    "action_tailwind": 1.325,
+    "p_beat_60": 0.5376,
+    "expected_buy_disclosures": 2.39
+   },
+   "last_date": "2026-09-03",
+   "last_price": 687.6801,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1000.0,
+   "pnl": 0.0
+  },
+  {
+   "id": 7,
+   "ticker": "SCHW",
+   "sectors": [
+    "Banks and brokers"
+   ],
+   "benchmark": "XLF",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 110.06,
+   "benchmark_entry_price": 58.4599,
+   "amount": 1000,
+   "shares": 9.086,
+   "score_at_rec": 0.763,
+   "why": {
+    "congress_90d": "2 buys / 0 sells by 1 members",
+    "buyers": [
+     "Alan Armstrong"
+    ],
+    "action_tailwind": 0.425,
+    "p_beat_60": 0.5564,
+    "expected_buy_disclosures": 2.72
+   },
+   "last_date": "2026-09-03",
+   "last_price": 110.06,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1000.0,
+   "pnl": 0.0
+  },
+  {
+   "id": 8,
+   "ticker": "URI",
+   "sectors": [
+    "Construction and infrastructure"
+   ],
+   "benchmark": "XLI",
+   "status": "open",
+   "recommended_on": "2026-09-03",
+   "entry_date": "2026-09-03",
+   "entry_price": 989.74,
+   "benchmark_entry_price": 174.18,
+   "amount": 1000,
+   "shares": 1.0104,
+   "score_at_rec": 0.756,
+   "why": {
+    "congress_90d": "1 buys / 0 sells by 1 members",
+    "buyers": [
+     "Alan Armstrong"
+    ],
+    "action_tailwind": 1.325,
+    "p_beat_60": 0.5834,
+    "expected_buy_disclosures": 2.39
+   },
+   "last_date": "2026-09-03",
+   "last_price": 989.74,
+   "return": 0.0,
+   "benchmark_return": 0.0,
+   "excess_return": 0.0,
+   "trading_days_held": 0,
+   "value": 1000.0,
+   "pnl": 0.0
+  }
+ ],
+ "stats": {
+  "n_open": 8,
+  "n_closed": 0,
+  "n_total": 8,
+  "open_amount": 10000,
+  "open_value": 10000.0,
+  "open_pnl": 0.0,
+  "closed_pnl": 0,
+  "hit_rate_closed": null,
+  "avg_excess_closed": null,
+  "avg_return_closed": null,
+  "avg_excess_open": 0.0,
+  "cash": 0,
+  "portfolio_value": 10000.0,
+  "portfolio_return": 0.0
+ },
+ "updated": "2026-09-03"
+}

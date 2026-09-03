@@ -21,6 +21,20 @@ The dashboard is a static site published by GitHub Pages. A GitHub Actions job r
 the data every weekday morning, retrains both models, commits the refreshed data, and
 redeploys. No server, no keys, no paid services.
 
+## Recommendations and the public track record
+
+The Recommendations tab ranks the ticker universe by a composite of five percentile-ranked
+components: net disclosed congressional buys in the last 90 days, distinct buyers, the
+direction of recent government actions for the ticker's sectors, the 60-day outperformance
+probability, and the expected number of buy disclosures in the next 60 days.
+
+The top of that ranking feeds a tracked ledger (`data/recommendations.json`): each
+recommendation records the date, entry price (last close available), a model-portfolio
+amount sized by conviction from a notional $10,000, and the share count. Every daily run
+marks open positions against their sector benchmark ETF and closes them after 60 trading
+days. The ledger is committed by the daily job, so the record is public and append-only in
+git history.
+
 ## Data sources (all public, all keyless)
 
 | Source | What it gives | Where |

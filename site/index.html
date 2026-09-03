@@ -20,6 +20,7 @@
   </div>
   <nav class="tabs" role="tablist">
     <button class="tab active" data-tab="actions" role="tab">Actions</button>
+    <button class="tab" data-tab="signals" role="tab">Recommendations</button>
     <button class="tab" data-tab="companies" role="tab">Companies</button>
     <button class="tab" data-tab="politicians" role="tab">Politicians</button>
     <button class="tab" data-tab="sectors" role="tab">Sectors</button>
@@ -41,10 +42,19 @@
         <option value="-1">Suffer</option>
         <option value="0">Unclear</option>
       </select>
+      <select id="f-order">
+        <option value="importance">Order: importance</option>
+        <option value="newest">Order: newest first</option>
+      </select>
       <label class="check"><input type="checkbox" id="f-forthcoming"> Forthcoming only</label>
       <span class="count" id="count-actions"></span>
     </div>
     <div id="actions-list" class="cards"></div>
+  </section>
+
+  <section id="panel-signals" class="panel">
+    <div class="notice" style="margin:0 0 14px">Recommendations come from the pattern of disclosed congressional purchases, the direction of recent government actions, and the model probabilities shown elsewhere on this site. Each one is recorded with its date, entry price and model-portfolio amount, then tracked against its sector benchmark until it closes, so the record is public and cannot be rewritten. This is a research screen of public records, not personal investment advice.</div>
+    <div id="signals-content"></div>
   </section>
 
   <section id="panel-companies" class="panel">

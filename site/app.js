@@ -14,8 +14,9 @@
   async function load() {
     const get = (f) => fetch(`data/${f}?t=${Date.now() >> 16}`).then((r) => { if (!r.ok) throw new Error(f); return r.json(); });
     try {
-      [state.summary, state.actions, state.sectors, state.politicians, state.tickers] = await Promise.all([
-        get("summary.json"), get("actions.json"), get("sectors.json"), get("politicians.json"), get("tickers.json")]);
+      [state.summary, state.actions, state.sectors, state.politicians, state.tickers, state.signals] = await Promise.all([
+        get("summary.json"), get("actions.json"), get("sectors.json"), get("politicians.json"), get("tickers.json"),
+        get("signals.json").catch(() => null)]);
     } catch (e) {
       $("#meta").textContent = "Data not built yet. Run the pipeline.";
       $("#actions-list").innerHTML = `<div class="empty">No data yet. The pipeline writes site/data/*.json.</div>`;
@@ -28,7 +29,68 @@
     for (const sel of ["#f-sector", "#f-pol-sector"]) {
       state.sectors.forEach((s) => { const o = document.createElement("option"); o.value = s.id; o.textContent = s.name; $(sel).appendChild(o); });
     }
-    renderActions(); renderCompanies(); renderPoliticians(); renderSectors(); renderModel();
+    renderActions(); renderSignals(); renderCompanies(); renderPoliticians(); renderSectors(); renderModel();
+  }
+
+  /* ------------------------------------------------------------ buy signals */
+  function renderSignals() {
+    const s = state.signals, el = $("#signals-content");
+    if (!s) { el.innerHTML = `<div class="empty">Signals not built yet.</div>`; return; }
+    const tail = (x) => x > 0.3 ? `<span class="dir up">tailwind</span>` : x < -0.3 ? `<span class="dir down">headwind</span>` : `<span class="dir flat">neutral</span>`;
+    const row = (r) => `<tr>
+      <td class="num">${r.rank}</td>
+      <td><span class="tk">${esc(r.ticker)}</span><br><span class="sub">${esc((r.sector_names || []).join(", "))}</span></td>
+      <td class="num"><b>${(100 * r.score).toFixed(0)}</b></td>
+      <td class="num">${r.buys_90d}B / ${r.sells_90d}S <span class="sub">(${r.buys_365d}B / ${r.sells_365d}S in 12m)</span></td>
+      <td class="num">${r.buyers_90d}</td>
+      <td class="num">${r.buy_amount_90d ? "$" + Math.round(r.buy_amount_90d).toLocaleString() : "<span class='muted'>0</span>"}</td>
+      <td>${tail(r.action_tailwind)} <span class="sub">${r.recent_actions} actions</span></td>
+      <td class="num">${pct(r.p_beat_20)}</td>
+      <td class="num">${pct(r.p_beat_60)}</td>
+      <td class="num">${r.expected_buy_disclosures}</td>
+      <td class="sub">${esc((r.buyer_names || []).join(", "))}${r.last_buy_filing ? ` · last buy filed ${esc(r.last_buy_filing)}` : ""}</td>
+    </tr>`;
+    const head = `<thead><tr><th class="num">#</th><th>Ticker</th><th class="num">Score</th><th class="num">Congress 90d</th><th class="num">Distinct buyers</th><th class="num">Buy amount (range midpoints)</th><th>Gov. actions</th><th class="num">P(beat 20d)</th><th class="num">P(beat 60d)</th><th class="num">Expected buy filings 60d</th><th>Who bought</th></tr></thead>`;
+    const L = s.ledger || { entries: [], stats: {}, rules: {}, notional: 10000 }, st = L.stats || {};
+    const money = (x) => (x == null) ? "n/a" : (x < 0 ? "-$" : "$") + Math.abs(x).toLocaleString(undefined, { maximumFractionDigits: 0 });
+    const posRow = (e) => `<tr>
+      <td><span class="tk">${esc(e.ticker)}</span><br><span class="sub">${esc((e.sectors || []).join(", "))} vs ${esc(e.benchmark)}</span></td>
+      <td>${esc(e.recommended_on)}<br><span class="sub">score ${(100 * e.score_at_rec).toFixed(0)}</span></td>
+      <td class="num">$${e.entry_price.toFixed(2)}<br><span class="sub">${esc(e.entry_date)}</span></td>
+      <td class="num"><b>${money(e.amount)}</b><br><span class="sub">${e.shares} sh</span></td>
+      <td class="num">$${(e.last_price || 0).toFixed(2)}<br><span class="sub">${esc(e.last_date || "")}</span></td>
+      <td class="num">${signed(e.return)}<br><span class="sub">${money(e.pnl)}</span></td>
+      <td class="num">${signed(e.benchmark_return)}</td>
+      <td class="num"><b>${signed(e.excess_return)}</b></td>
+      <td class="num">${e.trading_days_held}${e.status === "closed" ? `<br><span class="sub">closed ${esc(e.exit_date || "")}</span>` : ` / ${L.rules.hold_trading_days}`}</td>
+      <td class="sub">${esc(e.why ? e.why.congress_90d : "")}${e.why && e.why.buyers && e.why.buyers.length ? `: ${esc(e.why.buyers.slice(0, 3).join(", "))}` : ""}</td>
+    </tr>`;
+    const posHead = `<thead><tr><th>Ticker</th><th>Recommended</th><th class="num">Entry</th><th class="num">Amount</th><th class="num">Last</th><th class="num">Return</th><th class="num">Benchmark</th><th class="num">Excess</th><th class="num">Days held</th><th>Why</th></tr></thead>`;
+    const openE = L.entries.filter((e) => e.status === "open"), closedE = L.entries.filter((e) => e.status === "closed").sort((a, b) => (b.exit_date || "").localeCompare(a.exit_date || ""));
+    el.innerHTML = `
+      <h2 style="margin:0 0 6px;font-size:18px">Tracked recommendations</h2>
+      <p class="sub" style="margin:0 0 10px">Model portfolio of ${money(L.notional)}. A ticker becomes a recommendation when its score reaches ${Math.round(100 * (L.rules.min_score || 0))} and fewer than ${L.rules.max_open} are open; amount by conviction (${(L.rules.tiers || []).map((t) => `score ${Math.round(100 * t.min_score)}+ = ${money(t.amount)}`).join(", ")}); entry at the last close available when recommended (a real order fills at the next open); closed after ${L.rules.hold_trading_days} trading days. Updated ${esc(L.updated || "")}.</p>
+      <div class="kv">
+        <div><div class="k">Portfolio value</div><div class="v">${money(st.portfolio_value)}</div></div>
+        <div><div class="k">Portfolio return</div><div class="v">${signed(st.portfolio_return)}</div></div>
+        <div><div class="k">Open</div><div class="v">${st.n_open ?? 0}</div></div>
+        <div><div class="k">Open P&amp;L</div><div class="v">${money(st.open_pnl)}</div></div>
+        <div><div class="k">Closed</div><div class="v">${st.n_closed ?? 0}</div></div>
+        <div><div class="k">Closed hit rate vs benchmark</div><div class="v">${st.hit_rate_closed == null ? "n/a" : pct(st.hit_rate_closed)}</div></div>
+        <div><div class="k">Avg excess, closed</div><div class="v">${st.avg_excess_closed == null ? "n/a" : signed(st.avg_excess_closed)}</div></div>
+        <div><div class="k">Cash</div><div class="v">${money(st.cash)}</div></div>
+      </div>
+      <h3 style="margin:14px 0 6px">Open (${openE.length})</h3>
+      <div class="table-wrap"><table class="grid">${posHead}<tbody>${openE.map(posRow).join("") || "<tr><td colspan='10' class='muted'>none open</td></tr>"}</tbody></table></div>
+      <h3 style="margin:18px 0 6px">Closed (${closedE.length})</h3>
+      <div class="table-wrap"><table class="grid">${posHead}<tbody>${closedE.map(posRow).join("") || "<tr><td colspan='10' class='muted'>nothing closed yet; the first positions close after " + L.rules.hold_trading_days + " trading days</td></tr>"}</tbody></table></div>
+
+      <h2 style="margin:26px 0 6px;font-size:18px">Today's ranking as of ${esc(s.asof)}</h2>
+      <p class="sub" style="margin:0 0 12px">Score = ${Object.entries(s.weights).map(([k, v]) => `${Math.round(100 * v)}% ${k.replace(/_/g, " ")}`).join(" + ")}, each as a percentile rank across the ${state.tickers.length}-ticker universe. Listed tickers have at least one disclosed congressional purchase in the last 12 months. The top of this list feeds the tracked recommendations above.</p>
+      <div class="table-wrap"><table class="grid">${head}<tbody>${s.buy_signals.map(row).join("")}</tbody></table></div>
+      <h2 style="margin:22px 0 6px;font-size:18px">Where Congress is a net seller (90 days)</h2>
+      <div class="table-wrap"><table class="grid">${head}<tbody>${s.sell_pressure.map(row).join("") || "<tr><td colspan='11' class='muted'>none</td></tr>"}</tbody></table></div>
+      <p class="sub" style="margin-top:14px">Members disclose trades up to 45 days after they happen, so "90 days" refers to filing dates. Amounts are midpoints of the ranges members report. The outperformance probabilities carry the holdout error shown on the Model and data tab.</p>`;
   }
 
   /* ------------------------------------------------------------ tabs */
@@ -76,6 +138,7 @@
       const hay = [a.title, a.abstract, a.agencies.join(" "), a.type, ...a.sectors.flatMap((s) => [s.sector, ...s.tickers.map((t) => t.ticker)])].join(" ").toLowerCase();
       return hay.includes(q);
     });
+    if ($("#f-order").value === "newest") rows.sort((a, b) => (b.publication_date || "").localeCompare(a.publication_date || ""));
     $("#count-actions").textContent = `${rows.length} of ${state.actions.length} actions in the last ${state.summary.recent_action_days} days`;
     $("#actions-list").innerHTML = rows.length ? rows.map((a) => {
       const secs = a.sectors.filter((s) => (!fs || s.sector_id === fs) && (fd === "" || String(s.direction) === fd));
@@ -94,7 +157,7 @@
     }).join("") : `<div class="empty">Nothing matches these filters.</div>`;
     $$(".pol-link").forEach((a) => a.addEventListener("click", (e) => { e.preventDefault(); $(`.tab[data-tab="politicians"]`).click(); showPol(a.dataset.pol); }));
   }
-  ["#q-actions", "#f-sector", "#f-direction", "#f-forthcoming"].forEach((s) => $(s).addEventListener("input", renderActions));
+  ["#q-actions", "#f-sector", "#f-direction", "#f-forthcoming", "#f-order"].forEach((s) => $(s).addEventListener("input", renderActions));
 
   /* ------------------------------------------------------------ generic sortable table */
   function table(el, cols, rows, key, onRow) {

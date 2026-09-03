@@ -298,9 +298,33 @@ _DIRECTION_RE = {
 }
 
 
+# Routine, high-volume document families that never move a sector. Excluded before
+# any sector matching so they neither clutter the dashboard nor train the models.
+ROUTINE_TITLE_PATTERNS = tuple(re.compile(p, re.IGNORECASE) for p in (
+    r"^Airworthiness Directives?", r"^Television Broadcasting Services", r"^Radio Broadcasting Services",
+    r"Pesticide Tolerances?", r"^Safety Zones?", r"^Security Zones?", r"^Special Local Regulations?",
+    r"^Drawbridge Operation", r"^Air Plan (Approval|Disapproval)", r"^Approval and Promulgation of",
+    r"^Fisheries (of|off) ", r"Fishing (Season|Quota|Closure)", r"^Airspace|Class [DE] Airspace|^Amendment of Class",
+    r"^Establishment of Class", r"^Standard Instrument Approach Procedures", r"^Revocation of Class",
+    r"^Schedules of Controlled Substances", r"^Anchorage (Grounds|Regulations)", r"^Regulated Navigation Area",
+    r"^Sunshine Act", r"^Meetings?;", r"^Notice of (Meeting|Public Meeting)", r"^Privacy Act of 1974",
+    r"^Federal Acquisition Regulation; Technical Amendments?", r"^Civil Monetary Penalt(y|ies) Inflation Adjustment",
+    r"^Suspension of Community Eligibility", r"^Final Flood Elevation", r"^Proposed Flood Elevation",
+    r"^Changes in Flood Elevation", r"^Endangered and Threatened (Wildlife|Species)", r"^Migratory Bird",
+    r"^Medical Devices?; .* Classification", r"^Import Restrictions Imposed on", r"^Petition for Rulemaking",
+    r"^National Oil and Hazardous Substances Pollution Contingency Plan",
+))
+
+
+def is_routine(title: str) -> bool:
+    return any(rx.search(title or "") for rx in ROUTINE_TITLE_PATTERNS)
+
+
 def map_action(title: str, abstract: str | None, action: str | None, agency_names: list[str],
-               min_relevance: float = 0.25) -> list[SectorLink]:
+               min_relevance: float = 0.25, presidential: bool = False) -> list[SectorLink]:
     """Link one government action to sectors. Pure function; no I/O."""
+    if is_routine(title):
+        return []
     text = " ".join(x for x in (title, abstract, action) if x)
     links: list[SectorLink] = []
     for sector in SECTORS:
@@ -310,11 +334,12 @@ def map_action(title: str, abstract: str | None, action: str | None, agency_name
             m = rx.search(text)
             if m:
                 matched_keywords.append(m.group(0).strip())
-        # Relevance: first keyword 0.25, each further distinct keyword 0.2, agency match 0.3,
-        # capped at 1.0. Agency alone is never enough (Treasury issues thousands of
-        # unrelated documents); a single keyword alone stays below the pipeline threshold.
+        # Relevance: 0.2 per distinct keyword, 0.25 for an issuing-agency match, 0.25 for a
+        # presidential document (which carries no sector agency), capped at 1.0. Agency alone
+        # is never enough (Treasury issues thousands of unrelated documents), and a single
+        # keyword without agency or presidential context stays below the pipeline threshold.
         n_kw = len(set(matched_keywords))
-        relevance = min(1.0, (0.25 + 0.2 * (n_kw - 1) if n_kw else 0.0) + 0.3 * bool(matched_agencies))
+        relevance = min(1.0, 0.2 * n_kw + 0.25 * bool(matched_agencies) + 0.25 * bool(presidential))
         if not matched_keywords:
             relevance = 0.0
         if relevance < min_relevance:

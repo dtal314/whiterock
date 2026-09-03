@@ -17,7 +17,7 @@ from .sources.legislators import Matcher
 
 log = logging.getLogger(__name__)
 
-MIN_LINK_RELEVANCE = 0.4
+MIN_LINK_RELEVANCE = 0.45   # keyword + agency, keyword + presidential, or 3 keywords
 
 
 def build_transactions(house: list[dict], senate: list[dict], executive: list[dict], roster: dict) -> pd.DataFrame:
@@ -72,7 +72,7 @@ def build_action_links(docs: list[dict]) -> pd.DataFrame:
     rows = []
     for d in docs:
         links = map_action(d.get("title", ""), d.get("abstract"), d.get("action"), d.get("agencies") or [],
-                           min_relevance=MIN_LINK_RELEVANCE)
+                           min_relevance=MIN_LINK_RELEVANCE, presidential=(d.get("type") == "PRESDOCU"))
         for l in links:
             rows.append({
                 "doc_id": d["id"], "sector_id": l.sector_id, "relevance": l.relevance,

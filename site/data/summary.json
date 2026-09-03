@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-03T18:32:19+00:00",
+ "generated_at": "2026-09-03T18:51:11+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -13,17 +13,19 @@
  "market_benchmark": "SPY",
  "counts": {
   "documents": 41062,
-  "linked_documents": 15303,
-  "recent_actions": 255,
+  "linked_documents": 7150,
+  "recent_actions": 138,
   "forthcoming": 0,
   "transactions": 21390,
   "transactions_in_universe": 5387,
   "politicians_with_trades": 214,
   "tickers": 130,
   "sectors": 21,
-  "outperformance_events": 51152,
+  "outperformance_events": 37412,
   "price_rows": 1992,
-  "latest_price_date": "2026-09-03"
+  "latest_price_date": "2026-09-03",
+  "buy_signals": 20,
+  "recommendations_open": 8
  },
  "models": {
   "disclosure": {
@@ -31,86 +33,86 @@
     "holdout_start": "2026-01-01",
     "n_train": 92694,
     "n_holdout": 25326,
-    "log_loss": 0.0853,
+    "log_loss": 0.0863,
     "log_loss_base_rate": 0.1111,
-    "auc_buy": 0.8792,
-    "brier_buy": 0.00898,
+    "auc_buy": 0.8724,
+    "brier_buy": 0.00918,
     "brier_buy_base_rate": 0.00974,
     "calibration_buy": [
      {
       "p_low": 0.0,
       "p_high": 0.0003,
-      "n": 5065,
+      "n": 5060,
       "mean_predicted": 0.0002,
-      "observed": 0.0
+      "observed": 0.0002
      },
      {
       "p_low": 0.0003,
-      "p_high": 0.0008,
-      "n": 5065,
+      "p_high": 0.0007,
+      "n": 5070,
       "mean_predicted": 0.0005,
-      "observed": 0.0018
+      "observed": 0.0028
      },
      {
-      "p_low": 0.0008,
-      "p_high": 0.002,
+      "p_low": 0.0007,
+      "p_high": 0.0018,
       "n": 5066,
-      "mean_predicted": 0.0013,
-      "observed": 0.0041
+      "mean_predicted": 0.0012,
+      "observed": 0.0028
      },
      {
-      "p_low": 0.002,
-      "p_high": 0.0089,
+      "p_low": 0.0018,
+      "p_high": 0.0095,
       "n": 5064,
-      "mean_predicted": 0.0043,
-      "observed": 0.0036
+      "mean_predicted": 0.0042,
+      "observed": 0.0051
      },
      {
-      "p_low": 0.0089,
+      "p_low": 0.0095,
       "p_high": 1.0,
       "n": 5066,
-      "mean_predicted": 0.0641,
-      "observed": 0.0397
+      "mean_predicted": 0.0639,
+      "observed": 0.0383
      }
     ],
-    "auc_sell": 0.8771,
-    "brier_sell": 0.00958,
+    "auc_sell": 0.8825,
+    "brier_sell": 0.00953,
     "brier_sell_base_rate": 0.00954,
     "calibration_sell": [
      {
       "p_low": 0.0,
-      "p_high": 0.0002,
-      "n": 5065,
+      "p_high": 0.0003,
+      "n": 5061,
       "mean_predicted": 0.0001,
       "observed": 0.0004
      },
      {
-      "p_low": 0.0002,
-      "p_high": 0.0008,
-      "n": 5065,
+      "p_low": 0.0003,
+      "p_high": 0.0009,
+      "n": 5069,
       "mean_predicted": 0.0005,
       "observed": 0.0008
      },
      {
-      "p_low": 0.0008,
-      "p_high": 0.0021,
-      "n": 5066,
+      "p_low": 0.0009,
+      "p_high": 0.0019,
+      "n": 5064,
       "mean_predicted": 0.0014,
       "observed": 0.0026
      },
      {
-      "p_low": 0.0021,
-      "p_high": 0.0054,
-      "n": 5064,
-      "mean_predicted": 0.0033,
-      "observed": 0.0067
+      "p_low": 0.0019,
+      "p_high": 0.0053,
+      "n": 5066,
+      "mean_predicted": 0.0032,
+      "observed": 0.0049
      },
      {
-      "p_low": 0.0054,
+      "p_low": 0.0053,
       "p_high": 1.0,
       "n": 5066,
-      "mean_predicted": 0.0426,
-      "observed": 0.0377
+      "mean_predicted": 0.0419,
+      "observed": 0.0395
      }
     ],
     "holdout_positive_rate": {
@@ -127,157 +129,157 @@
   },
   "outperformance": {
    "5": {
-    "n_train": 45391,
-    "n_holdout": 5633,
+    "n_train": 33288,
+    "n_holdout": 4026,
     "holdout_start": "2025-09-03",
-    "base_rate_train": 0.4963,
-    "auc": 0.5232,
-    "brier": 0.24959,
-    "brier_base_rate": 0.25001,
-    "base_rate_holdout": 0.4997,
+    "base_rate_train": 0.494,
+    "auc": 0.5181,
+    "brier": 0.25023,
+    "brier_base_rate": 0.25012,
+    "base_rate_holdout": 0.5067,
     "calibration": [
      {
       "p_low": 0.0,
-      "p_high": 0.4771,
-      "n": 1127,
-      "mean_predicted": 0.4639,
-      "observed": 0.449
+      "p_high": 0.4721,
+      "n": 805,
+      "mean_predicted": 0.4567,
+      "observed": 0.4609
      },
      {
-      "p_low": 0.4771,
-      "p_high": 0.4871,
-      "n": 1126,
-      "mean_predicted": 0.4823,
-      "observed": 0.5133
+      "p_low": 0.4721,
+      "p_high": 0.486,
+      "n": 805,
+      "mean_predicted": 0.4796,
+      "observed": 0.5193
      },
      {
-      "p_low": 0.4871,
-      "p_high": 0.4969,
-      "n": 1127,
-      "mean_predicted": 0.4919,
+      "p_low": 0.486,
+      "p_high": 0.4974,
+      "n": 805,
+      "mean_predicted": 0.4914,
+      "observed": 0.5168
+     },
+     {
+      "p_low": 0.4974,
+      "p_high": 0.5145,
+      "n": 805,
+      "mean_predicted": 0.5052,
+      "observed": 0.5267
+     },
+     {
+      "p_low": 0.5145,
+      "p_high": 1.0,
+      "n": 806,
+      "mean_predicted": 0.5366,
+      "observed": 0.5099
+     }
+    ],
+    "mean_excess_when_confident_up": -0.00467,
+    "mean_excess_when_confident_down": -0.01748,
+    "n_confident_up": 203,
+    "n_confident_down": 186
+   },
+   "20": {
+    "n_train": 33288,
+    "n_holdout": 3839,
+    "holdout_start": "2025-09-03",
+    "base_rate_train": 0.4916,
+    "auc": 0.522,
+    "brier": 0.25038,
+    "brier_base_rate": 0.2503,
+    "base_rate_holdout": 0.5134,
+    "calibration": [
+     {
+      "p_low": 0.0,
+      "p_high": 0.4595,
+      "n": 768,
+      "mean_predicted": 0.4436,
+      "observed": 0.474
+     },
+     {
+      "p_low": 0.4595,
+      "p_high": 0.4781,
+      "n": 768,
+      "mean_predicted": 0.4691,
+      "observed": 0.4974
+     },
+     {
+      "p_low": 0.4781,
+      "p_high": 0.4978,
+      "n": 767,
+      "mean_predicted": 0.488,
+      "observed": 0.5306
+     },
+     {
+      "p_low": 0.4978,
+      "p_high": 0.5296,
+      "n": 768,
+      "mean_predicted": 0.5137,
+      "observed": 0.5495
+     },
+     {
+      "p_low": 0.5296,
+      "p_high": 1.0,
+      "n": 768,
+      "mean_predicted": 0.5465,
+      "observed": 0.5156
+     }
+    ],
+    "mean_excess_when_confident_up": 0.00265,
+    "mean_excess_when_confident_down": -0.01993,
+    "n_confident_up": 260,
+    "n_confident_down": 453
+   },
+   "60": {
+    "n_train": 33288,
+    "n_holdout": 2927,
+    "holdout_start": "2025-09-03",
+    "base_rate_train": 0.494,
+    "auc": 0.5035,
+    "brier": 0.25264,
+    "brier_base_rate": 0.2501,
+    "base_rate_holdout": 0.5056,
+    "calibration": [
+     {
+      "p_low": 0.0,
+      "p_high": 0.446,
+      "n": 586,
+      "mean_predicted": 0.4149,
+      "observed": 0.4608
+     },
+     {
+      "p_low": 0.446,
+      "p_high": 0.4807,
+      "n": 585,
+      "mean_predicted": 0.4625,
+      "observed": 0.5402
+     },
+     {
+      "p_low": 0.4807,
+      "p_high": 0.5166,
+      "n": 585,
+      "mean_predicted": 0.499,
       "observed": 0.5111
      },
      {
-      "p_low": 0.4969,
-      "p_high": 0.5143,
-      "n": 1126,
-      "mean_predicted": 0.5047,
-      "observed": 0.5178
+      "p_low": 0.5166,
+      "p_high": 0.5478,
+      "n": 585,
+      "mean_predicted": 0.5333,
+      "observed": 0.5214
      },
      {
-      "p_low": 0.5143,
+      "p_low": 0.5478,
       "p_high": 1.0,
-      "n": 1127,
-      "mean_predicted": 0.5316,
-      "observed": 0.5075
+      "n": 586,
+      "mean_predicted": 0.5693,
+      "observed": 0.4949
      }
     ],
-    "mean_excess_when_confident_up": -0.00196,
-    "mean_excess_when_confident_down": -0.01744,
-    "n_confident_up": 118,
-    "n_confident_down": 167
-   },
-   "20": {
-    "n_train": 45391,
-    "n_holdout": 5301,
-    "holdout_start": "2025-09-03",
-    "base_rate_train": 0.4895,
-    "auc": 0.5281,
-    "brier": 0.25043,
-    "brier_base_rate": 0.25065,
-    "base_rate_holdout": 0.5256,
-    "calibration": [
-     {
-      "p_low": 0.0,
-      "p_high": 0.4574,
-      "n": 1060,
-      "mean_predicted": 0.4405,
-      "observed": 0.4632
-     },
-     {
-      "p_low": 0.4574,
-      "p_high": 0.4759,
-      "n": 1060,
-      "mean_predicted": 0.4669,
-      "observed": 0.5283
-     },
-     {
-      "p_low": 0.4759,
-      "p_high": 0.4962,
-      "n": 1060,
-      "mean_predicted": 0.4861,
-      "observed": 0.5274
-     },
-     {
-      "p_low": 0.4962,
-      "p_high": 0.5252,
-      "n": 1060,
-      "mean_predicted": 0.5094,
-      "observed": 0.5849
-     },
-     {
-      "p_low": 0.5252,
-      "p_high": 1.0,
-      "n": 1061,
-      "mean_predicted": 0.5445,
-      "observed": 0.524
-     }
-    ],
-    "mean_excess_when_confident_up": -0.00242,
-    "mean_excess_when_confident_down": -0.01555,
-    "n_confident_up": 345,
-    "n_confident_down": 762
-   },
-   "60": {
-    "n_train": 45391,
-    "n_holdout": 4125,
-    "holdout_start": "2025-09-03",
-    "base_rate_train": 0.4916,
-    "auc": 0.5162,
-    "brier": 0.25382,
-    "brier_base_rate": 0.25066,
-    "base_rate_holdout": 0.535,
-    "calibration": [
-     {
-      "p_low": 0.0,
-      "p_high": 0.4377,
-      "n": 825,
-      "mean_predicted": 0.4118,
-      "observed": 0.4691
-     },
-     {
-      "p_low": 0.4377,
-      "p_high": 0.4633,
-      "n": 825,
-      "mean_predicted": 0.451,
-      "observed": 0.5115
-     },
-     {
-      "p_low": 0.4633,
-      "p_high": 0.4971,
-      "n": 825,
-      "mean_predicted": 0.4782,
-      "observed": 0.6509
-     },
-     {
-      "p_low": 0.4971,
-      "p_high": 0.5444,
-      "n": 825,
-      "mean_predicted": 0.5215,
-      "observed": 0.5479
-     },
-     {
-      "p_low": 0.5444,
-      "p_high": 1.0,
-      "n": 825,
-      "mean_predicted": 0.5771,
-      "observed": 0.4958
-     }
-    ],
-    "mean_excess_when_confident_up": 0.00829,
-    "mean_excess_when_confident_down": -0.01553,
-    "n_confident_up": 708,
-    "n_confident_down": 1194
+    "mean_excess_when_confident_up": 0.00168,
+    "mean_excess_when_confident_down": -0.02248,
+    "n_confident_up": 538,
+    "n_confident_down": 654
    }
   }
  },

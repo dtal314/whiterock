@@ -23,6 +23,19 @@ def test_unrelated_action_maps_nowhere():
     assert map_action("Notice of Meeting of the Advisory Committee on Apprenticeship", None, None, ["Labor Department"]) == []
 
 
+def test_routine_families_are_excluded():
+    assert map_action("Airworthiness Directives; Pratt & Whitney Division Engines", "FAA airline engine inspection",
+                      None, ["Federal Aviation Administration"]) == []
+    assert map_action("Television Broadcasting Services Colusa, California", "broadcast channel substitution",
+                      None, ["Federal Communications Commission"]) == []
+
+
+def test_presidential_bonus_links_single_keyword_orders():
+    links = map_action("Promoting American Energy Dominance Through Offshore Leasing", None, None,
+                       ["Executive Office of the President"], min_relevance=0.45, presidential=True)
+    assert any(l.sector_id == "oil_gas" and l.direction == 1 for l in links)
+
+
 def test_universe_consistency():
     for s in SECTORS:
         assert s.tickers and s.benchmark and s.keywords and s.agencies
