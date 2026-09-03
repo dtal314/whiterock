@@ -4,6 +4,7 @@ from __future__ import annotations
 import gzip
 import json
 import logging
+import math
 import time
 from datetime import date, datetime
 from pathlib import Path
@@ -88,9 +89,25 @@ def read_json(path: Path, default: Any = None) -> Any:
 
 
 def write_json(path: Path, obj: Any, indent: int | None = None) -> None:
+    """Strict JSON: NaN and infinities become null so browsers can parse the file."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:
-        json.dump(obj, fh, ensure_ascii=False, indent=indent, default=_json_default)
+        json.dump(_clean(obj), fh, ensure_ascii=False, indent=indent, default=_json_default, allow_nan=False)
+
+
+def _clean(o: Any) -> Any:
+    if isinstance(o, dict):
+        return {str(k): _clean(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [_clean(v) for v in o]
+    if isinstance(o, float) and (math.isnan(o) or math.isinf(o)):
+        return None
+    if hasattr(o, "item") and not isinstance(o, (str, bytes)):  # numpy scalar
+        try:
+            return _clean(o.item())
+        except (ValueError, TypeError):
+            return o
+    return o
 
 
 def _json_default(o: Any) -> Any:

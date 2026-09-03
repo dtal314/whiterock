@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-03T16:29:28+00:00",
+ "generated_at": "2026-09-03T18:32:19+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -13,9 +13,9 @@
  "market_benchmark": "SPY",
  "counts": {
   "documents": 41062,
-  "linked_documents": 15315,
-  "recent_actions": 267,
-  "forthcoming": 12,
+  "linked_documents": 15303,
+  "recent_actions": 255,
+  "forthcoming": 0,
   "transactions": 21390,
   "transactions_in_universe": 5387,
   "politicians_with_trades": 214,
@@ -285,28 +285,21 @@
   "legislators": {
    "name": "congress-legislators roster",
    "ok": true,
-   "detail": "fetched",
+   "detail": "cache",
    "count": 713,
-   "url": "https://github.com/unitedstates/congress-legislators"
+   "url": null
   },
   "federal_register": {
    "name": "Federal Register (rules, proposed rules, presidential documents)",
    "ok": true,
-   "detail": "fetched 2026-09-03",
+   "detail": "cache",
    "count": 41062,
    "url": "https://www.federalregister.gov/developers/documentation/api/v1"
-  },
-  "public_inspection": {
-   "name": "Federal Register public inspection (forthcoming)",
-   "ok": true,
-   "detail": "fetched",
-   "count": 83,
-   "url": "https://www.federalregister.gov/public-inspection/current"
   },
   "house": {
    "name": "House Clerk periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-03",
+   "detail": "cache",
    "count": 17571,
    "url": "https://disclosures-clerk.house.gov/FinancialDisclosure",
    "filings_indexed": 1800,
@@ -315,7 +308,7 @@
   "senate": {
    "name": "Senate eFD periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-03",
+   "detail": "cache",
    "count": 3819,
    "url": "https://efdsearch.senate.gov/search/",
    "filings_indexed": 459,
@@ -331,9 +324,9 @@
   "prices": {
    "name": "Daily prices (yfinance)",
    "ok": true,
-   "detail": "fetched 2026-09-03",
+   "detail": "cache",
    "count": 1992,
-   "url": "https://github.com/ranaroussi/yfinance"
+   "url": null
   }
  }
 }
