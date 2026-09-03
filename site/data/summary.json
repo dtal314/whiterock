@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-03T18:59:22+00:00",
+ "generated_at": "2026-09-03T19:37:08+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -225,8 +225,8 @@
       "observed": 0.5156
      }
     ],
-    "mean_excess_when_confident_up": 0.00263,
-    "mean_excess_when_confident_down": -0.01992,
+    "mean_excess_when_confident_up": 0.00269,
+    "mean_excess_when_confident_down": -0.01994,
     "n_confident_up": 260,
     "n_confident_down": 453
    },
