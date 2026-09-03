@@ -287,21 +287,28 @@
   "legislators": {
    "name": "congress-legislators roster",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched",
    "count": 713,
-   "url": null
+   "url": "https://github.com/unitedstates/congress-legislators"
   },
   "federal_register": {
    "name": "Federal Register (rules, proposed rules, presidential documents)",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 41062,
    "url": "https://www.federalregister.gov/developers/documentation/api/v1"
+  },
+  "public_inspection": {
+   "name": "Federal Register public inspection (forthcoming)",
+   "ok": true,
+   "detail": "fetched",
+   "count": 83,
+   "url": "https://www.federalregister.gov/public-inspection/current"
   },
   "house": {
    "name": "House Clerk periodic transaction reports",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 17571,
    "url": "https://disclosures-clerk.house.gov/FinancialDisclosure",
    "filings_indexed": 1800,
@@ -310,7 +317,7 @@
   "senate": {
    "name": "Senate eFD periodic transaction reports",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 3819,
    "url": "https://efdsearch.senate.gov/search/",
    "filings_indexed": 459,
@@ -326,9 +333,9 @@
   "prices": {
    "name": "Daily prices (yfinance)",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 1992,
-   "url": null
+   "url": "https://github.com/ranaroussi/yfinance"
   }
  }
 }
