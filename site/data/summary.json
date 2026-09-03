@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-03T18:51:11+00:00",
+ "generated_at": "2026-09-03T18:59:22+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -13,9 +13,9 @@
  "market_benchmark": "SPY",
  "counts": {
   "documents": 41062,
-  "linked_documents": 7150,
-  "recent_actions": 138,
-  "forthcoming": 0,
+  "linked_documents": 7161,
+  "recent_actions": 149,
+  "forthcoming": 11,
   "transactions": 21390,
   "transactions_in_universe": 5387,
   "politicians_with_trades": 214,
@@ -33,86 +33,86 @@
     "holdout_start": "2026-01-01",
     "n_train": 92694,
     "n_holdout": 25326,
-    "log_loss": 0.0863,
+    "log_loss": 0.0865,
     "log_loss_base_rate": 0.1111,
-    "auc_buy": 0.8724,
-    "brier_buy": 0.00918,
+    "auc_buy": 0.8765,
+    "brier_buy": 0.00924,
     "brier_buy_base_rate": 0.00974,
     "calibration_buy": [
      {
       "p_low": 0.0,
-      "p_high": 0.0003,
-      "n": 5060,
+      "p_high": 0.0002,
+      "n": 5065,
       "mean_predicted": 0.0002,
-      "observed": 0.0002
+      "observed": 0.0
      },
      {
-      "p_low": 0.0003,
+      "p_low": 0.0002,
       "p_high": 0.0007,
-      "n": 5070,
+      "n": 5065,
       "mean_predicted": 0.0005,
-      "observed": 0.0028
+      "observed": 0.0022
      },
      {
       "p_low": 0.0007,
       "p_high": 0.0018,
       "n": 5066,
       "mean_predicted": 0.0012,
-      "observed": 0.0028
+      "observed": 0.0032
      },
      {
       "p_low": 0.0018,
-      "p_high": 0.0095,
+      "p_high": 0.0092,
       "n": 5064,
-      "mean_predicted": 0.0042,
-      "observed": 0.0051
+      "mean_predicted": 0.0043,
+      "observed": 0.0055
      },
      {
-      "p_low": 0.0095,
+      "p_low": 0.0092,
       "p_high": 1.0,
       "n": 5066,
       "mean_predicted": 0.0639,
       "observed": 0.0383
      }
     ],
-    "auc_sell": 0.8825,
-    "brier_sell": 0.00953,
+    "auc_sell": 0.8798,
+    "brier_sell": 0.00965,
     "brier_sell_base_rate": 0.00954,
     "calibration_sell": [
      {
       "p_low": 0.0,
       "p_high": 0.0003,
-      "n": 5061,
+      "n": 5064,
       "mean_predicted": 0.0001,
-      "observed": 0.0004
+      "observed": 0.0006
      },
      {
       "p_low": 0.0003,
       "p_high": 0.0009,
-      "n": 5069,
+      "n": 5066,
       "mean_predicted": 0.0005,
-      "observed": 0.0008
+      "observed": 0.0006
      },
      {
       "p_low": 0.0009,
-      "p_high": 0.0019,
-      "n": 5064,
+      "p_high": 0.002,
+      "n": 5066,
       "mean_predicted": 0.0014,
-      "observed": 0.0026
+      "observed": 0.0028
      },
      {
-      "p_low": 0.0019,
+      "p_low": 0.002,
       "p_high": 0.0053,
-      "n": 5066,
-      "mean_predicted": 0.0032,
-      "observed": 0.0049
+      "n": 5064,
+      "mean_predicted": 0.0033,
+      "observed": 0.0057
      },
      {
       "p_low": 0.0053,
       "p_high": 1.0,
       "n": 5066,
-      "mean_predicted": 0.0419,
-      "observed": 0.0395
+      "mean_predicted": 0.0433,
+      "observed": 0.0385
      }
     ],
     "holdout_positive_rate": {
@@ -184,10 +184,10 @@
     "n_holdout": 3839,
     "holdout_start": "2025-09-03",
     "base_rate_train": 0.4916,
-    "auc": 0.522,
+    "auc": 0.5219,
     "brier": 0.25038,
-    "brier_base_rate": 0.2503,
-    "base_rate_holdout": 0.5134,
+    "brier_base_rate": 0.25029,
+    "base_rate_holdout": 0.5132,
     "calibration": [
      {
       "p_low": 0.0,
@@ -208,7 +208,7 @@
       "p_high": 0.4978,
       "n": 767,
       "mean_predicted": 0.488,
-      "observed": 0.5306
+      "observed": 0.5293
      },
      {
       "p_low": 0.4978,
@@ -225,8 +225,8 @@
       "observed": 0.5156
      }
     ],
-    "mean_excess_when_confident_up": 0.00265,
-    "mean_excess_when_confident_down": -0.01993,
+    "mean_excess_when_confident_up": 0.00263,
+    "mean_excess_when_confident_down": -0.01992,
     "n_confident_up": 260,
     "n_confident_down": 453
    },
