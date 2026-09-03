@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-03T18:32:19+00:00",
+ "generated_at": "2026-09-03T18:36:52+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -13,9 +13,9 @@
  "market_benchmark": "SPY",
  "counts": {
   "documents": 41062,
-  "linked_documents": 15303,
-  "recent_actions": 255,
-  "forthcoming": 0,
+  "linked_documents": 15315,
+  "recent_actions": 267,
+  "forthcoming": 12,
   "transactions": 21390,
   "transactions_in_universe": 5387,
   "politicians_with_trades": 214,
@@ -134,7 +134,7 @@
     "auc": 0.5232,
     "brier": 0.24959,
     "brier_base_rate": 0.25001,
-    "base_rate_holdout": 0.4997,
+    "base_rate_holdout": 0.4999,
     "calibration": [
      {
       "p_low": 0.0,
@@ -155,7 +155,7 @@
       "p_high": 0.4969,
       "n": 1127,
       "mean_predicted": 0.4919,
-      "observed": 0.5111
+      "observed": 0.512
      },
      {
       "p_low": 0.4969,
@@ -223,7 +223,7 @@
       "observed": 0.524
      }
     ],
-    "mean_excess_when_confident_up": -0.00242,
+    "mean_excess_when_confident_up": -0.00244,
     "mean_excess_when_confident_down": -0.01555,
     "n_confident_up": 345,
     "n_confident_down": 762
@@ -233,10 +233,10 @@
     "n_holdout": 4125,
     "holdout_start": "2025-09-03",
     "base_rate_train": 0.4916,
-    "auc": 0.5162,
-    "brier": 0.25382,
-    "brier_base_rate": 0.25066,
-    "base_rate_holdout": 0.535,
+    "auc": 0.516,
+    "brier": 0.25385,
+    "brier_base_rate": 0.25067,
+    "base_rate_holdout": 0.5353,
     "calibration": [
      {
       "p_low": 0.0,
@@ -250,7 +250,7 @@
       "p_high": 0.4633,
       "n": 825,
       "mean_predicted": 0.451,
-      "observed": 0.5115
+      "observed": 0.5127
      },
      {
       "p_low": 0.4633,
@@ -285,21 +285,28 @@
   "legislators": {
    "name": "congress-legislators roster",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched",
    "count": 713,
-   "url": null
+   "url": "https://github.com/unitedstates/congress-legislators"
   },
   "federal_register": {
    "name": "Federal Register (rules, proposed rules, presidential documents)",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 41062,
    "url": "https://www.federalregister.gov/developers/documentation/api/v1"
+  },
+  "public_inspection": {
+   "name": "Federal Register public inspection (forthcoming)",
+   "ok": true,
+   "detail": "fetched",
+   "count": 83,
+   "url": "https://www.federalregister.gov/public-inspection/current"
   },
   "house": {
    "name": "House Clerk periodic transaction reports",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 17571,
    "url": "https://disclosures-clerk.house.gov/FinancialDisclosure",
    "filings_indexed": 1800,
@@ -308,7 +315,7 @@
   "senate": {
    "name": "Senate eFD periodic transaction reports",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 3819,
    "url": "https://efdsearch.senate.gov/search/",
    "filings_indexed": 459,
@@ -324,9 +331,9 @@
   "prices": {
    "name": "Daily prices (yfinance)",
    "ok": true,
-   "detail": "cache",
+   "detail": "fetched 2026-09-03",
    "count": 1992,
-   "url": null
+   "url": "https://github.com/ranaroussi/yfinance"
   }
  }
 }
