@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-04T14:59:45+00:00",
+ "generated_at": "2026-09-07T16:30:09+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -14,9 +14,9 @@
  "counts": {
   "documents": 41076,
   "linked_documents": 7160,
-  "recent_actions": 144,
+  "recent_actions": 134,
   "forthcoming": 7,
-  "transactions": 21390,
+  "transactions": 21391,
   "transactions_in_universe": 5387,
   "politicians_with_trades": 214,
   "tickers": 130,
@@ -133,10 +133,10 @@
     "n_holdout": 4013,
     "holdout_start": "2025-09-04",
     "base_rate_train": 0.494,
-    "auc": 0.5184,
-    "brier": 0.25023,
-    "brier_base_rate": 0.25012,
-    "base_rate_holdout": 0.5071,
+    "auc": 0.5187,
+    "brier": 0.25022,
+    "brier_base_rate": 0.25013,
+    "base_rate_holdout": 0.5074,
     "calibration": [
      {
       "p_low": 0.0,
@@ -164,7 +164,7 @@
       "p_high": 0.5144,
       "n": 802,
       "mean_predicted": 0.5054,
-      "observed": 0.5337
+      "observed": 0.5349
      },
      {
       "p_low": 0.5144,
@@ -184,17 +184,17 @@
     "n_holdout": 3825,
     "holdout_start": "2025-09-04",
     "base_rate_train": 0.4917,
-    "auc": 0.5211,
-    "brier": 0.25044,
-    "brier_base_rate": 0.25028,
-    "base_rate_holdout": 0.5127,
+    "auc": 0.5213,
+    "brier": 0.25041,
+    "brier_base_rate": 0.25027,
+    "base_rate_holdout": 0.5122,
     "calibration": [
      {
       "p_low": 0.0,
       "p_high": 0.4593,
       "n": 765,
       "mean_predicted": 0.4434,
-      "observed": 0.4719
+      "observed": 0.4706
      },
      {
       "p_low": 0.4593,
@@ -208,7 +208,7 @@
       "p_high": 0.4979,
       "n": 765,
       "mean_predicted": 0.488,
-      "observed": 0.5294
+      "observed": 0.5281
      },
      {
       "p_low": 0.4979,
@@ -226,7 +226,7 @@
      }
     ],
     "mean_excess_when_confident_up": 0.00178,
-    "mean_excess_when_confident_down": -0.01912,
+    "mean_excess_when_confident_down": -0.01916,
     "n_confident_up": 271,
     "n_confident_down": 457
    },
@@ -276,8 +276,8 @@
       "observed": 0.4932
      }
     ],
-    "mean_excess_when_confident_up": 0.00041,
-    "mean_excess_when_confident_down": -0.02283,
+    "mean_excess_when_confident_up": 0.00042,
+    "mean_excess_when_confident_down": -0.02281,
     "n_confident_up": 541,
     "n_confident_down": 660
    }
@@ -294,7 +294,7 @@
   "federal_register": {
    "name": "Federal Register (rules, proposed rules, presidential documents)",
    "ok": true,
-   "detail": "fetched 2026-09-04",
+   "detail": "fetched 2026-09-07",
    "count": 41076,
    "url": "https://www.federalregister.gov/developers/documentation/api/v1"
   },
@@ -302,22 +302,22 @@
    "name": "Federal Register public inspection (forthcoming)",
    "ok": true,
    "detail": "fetched",
-   "count": 71,
+   "count": 77,
    "url": "https://www.federalregister.gov/public-inspection/current"
   },
   "house": {
    "name": "House Clerk periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-04",
-   "count": 17571,
+   "detail": "fetched 2026-09-07",
+   "count": 17572,
    "url": "https://disclosures-clerk.house.gov/FinancialDisclosure",
-   "filings_indexed": 1800,
+   "filings_indexed": 1801,
    "filings_paper_unparsed": 238
   },
   "senate": {
    "name": "Senate eFD periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-04",
+   "detail": "fetched 2026-09-07",
    "count": 3819,
    "url": "https://efdsearch.senate.gov/search/",
    "filings_indexed": 459,
@@ -333,7 +333,7 @@
   "prices": {
    "name": "Daily prices (yfinance)",
    "ok": true,
-   "detail": "fetched 2026-09-04",
+   "detail": "fetched 2026-09-07",
    "count": 1993,
    "url": "https://github.com/ranaroussi/yfinance"
   }
