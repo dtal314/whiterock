@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-15T15:36:50+00:00",
+ "generated_at": "2026-09-16T15:28:24+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -12,18 +12,18 @@
  "recent_action_days": 45,
  "market_benchmark": "SPY",
  "counts": {
-  "documents": 41192,
-  "linked_documents": 7184,
-  "recent_actions": 122,
-  "forthcoming": 14,
-  "transactions": 21644,
-  "transactions_in_universe": 5428,
+  "documents": 41204,
+  "linked_documents": 7176,
+  "recent_actions": 114,
+  "forthcoming": 6,
+  "transactions": 21656,
+  "transactions_in_universe": 5434,
   "politicians_with_trades": 215,
   "tickers": 130,
   "sectors": 21,
   "outperformance_events": 37536,
-  "price_rows": 1999,
-  "latest_price_date": "2026-09-15",
+  "price_rows": 2000,
+  "latest_price_date": "2026-09-16",
   "buy_signals": 20,
   "recommendations_open": 8
  },
@@ -130,156 +130,156 @@
   "outperformance": {
    "5": {
     "n_train": 33408,
-    "n_holdout": 4043,
+    "n_holdout": 4054,
     "holdout_start": "2025-09-15",
     "base_rate_train": 0.4941,
-    "auc": 0.5167,
+    "auc": 0.5168,
     "brier": 0.25031,
-    "brier_base_rate": 0.25013,
-    "base_rate_holdout": 0.5083,
+    "brier_base_rate": 0.25014,
+    "base_rate_holdout": 0.5089,
     "calibration": [
      {
       "p_low": 0.0,
-      "p_high": 0.4712,
-      "n": 809,
+      "p_high": 0.4711,
+      "n": 811,
       "mean_predicted": 0.455,
-      "observed": 0.4685
+      "observed": 0.4686
      },
      {
-      "p_low": 0.4712,
+      "p_low": 0.4711,
       "p_high": 0.4862,
-      "n": 808,
+      "n": 811,
       "mean_predicted": 0.4794,
-      "observed": 0.5272
+      "observed": 0.529
      },
      {
       "p_low": 0.4862,
       "p_high": 0.4977,
-      "n": 809,
+      "n": 810,
       "mean_predicted": 0.4917,
-      "observed": 0.5019
+      "observed": 0.5012
      },
      {
       "p_low": 0.4977,
-      "p_high": 0.5155,
-      "n": 808,
+      "p_high": 0.5154,
+      "n": 811,
       "mean_predicted": 0.5059,
-      "observed": 0.5309
+      "observed": 0.5327
      },
      {
-      "p_low": 0.5155,
+      "p_low": 0.5154,
       "p_high": 1.0,
-      "n": 809,
-      "mean_predicted": 0.5381,
-      "observed": 0.513
+      "n": 811,
+      "mean_predicted": 0.538,
+      "observed": 0.5129
      }
     ],
     "mean_excess_when_confident_up": -0.00104,
-    "mean_excess_when_confident_down": -0.01395,
+    "mean_excess_when_confident_down": -0.014,
     "n_confident_up": 216,
     "n_confident_down": 229
    },
    "20": {
     "n_train": 33408,
-    "n_holdout": 3846,
+    "n_holdout": 3852,
     "holdout_start": "2025-09-15",
     "base_rate_train": 0.4916,
-    "auc": 0.522,
-    "brier": 0.2505,
-    "brier_base_rate": 0.25037,
-    "base_rate_holdout": 0.5182,
+    "auc": 0.5216,
+    "brier": 0.25054,
+    "brier_base_rate": 0.25038,
+    "base_rate_holdout": 0.5187,
     "calibration": [
      {
       "p_low": 0.0,
-      "p_high": 0.459,
-      "n": 769,
-      "mean_predicted": 0.443,
-      "observed": 0.4785
+      "p_high": 0.4589,
+      "n": 771,
+      "mean_predicted": 0.4429,
+      "observed": 0.4799
      },
      {
-      "p_low": 0.459,
+      "p_low": 0.4589,
       "p_high": 0.4781,
-      "n": 769,
-      "mean_predicted": 0.4688,
-      "observed": 0.5033
+      "n": 770,
+      "mean_predicted": 0.4687,
+      "observed": 0.5039
      },
      {
       "p_low": 0.4781,
-      "p_high": 0.4974,
-      "n": 769,
-      "mean_predicted": 0.4878,
-      "observed": 0.5384
-     },
-     {
-      "p_low": 0.4974,
-      "p_high": 0.5294,
-      "n": 769,
-      "mean_predicted": 0.5129,
-      "observed": 0.554
-     },
-     {
-      "p_low": 0.5294,
-      "p_high": 1.0,
+      "p_high": 0.4973,
       "n": 770,
+      "mean_predicted": 0.4878,
+      "observed": 0.539
+     },
+     {
+      "p_low": 0.4973,
+      "p_high": 0.5293,
+      "n": 770,
+      "mean_predicted": 0.5128,
+      "observed": 0.5532
+     },
+     {
+      "p_low": 0.5293,
+      "p_high": 1.0,
+      "n": 771,
       "mean_predicted": 0.5467,
-      "observed": 0.5169
+      "observed": 0.5175
      }
     ],
     "mean_excess_when_confident_up": 0.00193,
-    "mean_excess_when_confident_down": -0.01668,
+    "mean_excess_when_confident_down": -0.01643,
     "n_confident_up": 273,
-    "n_confident_down": 475
+    "n_confident_down": 478
    },
    "60": {
     "n_train": 33408,
-    "n_holdout": 2922,
+    "n_holdout": 2956,
     "holdout_start": "2025-09-15",
     "base_rate_train": 0.4941,
-    "auc": 0.5058,
-    "brier": 0.25247,
-    "brier_base_rate": 0.25009,
-    "base_rate_holdout": 0.5044,
+    "auc": 0.508,
+    "brier": 0.25227,
+    "brier_base_rate": 0.25007,
+    "base_rate_holdout": 0.5034,
     "calibration": [
      {
       "p_low": 0.0,
-      "p_high": 0.4457,
-      "n": 585,
-      "mean_predicted": 0.4148,
-      "observed": 0.4615
+      "p_high": 0.4456,
+      "n": 591,
+      "mean_predicted": 0.415,
+      "observed": 0.4585
      },
      {
-      "p_low": 0.4457,
-      "p_high": 0.4794,
-      "n": 584,
-      "mean_predicted": 0.462,
-      "observed": 0.5377
+      "p_low": 0.4456,
+      "p_high": 0.4793,
+      "n": 591,
+      "mean_predicted": 0.4617,
+      "observed": 0.5296
      },
      {
-      "p_low": 0.4794,
-      "p_high": 0.5163,
-      "n": 584,
-      "mean_predicted": 0.498,
-      "observed": 0.5051
+      "p_low": 0.4793,
+      "p_high": 0.5161,
+      "n": 591,
+      "mean_predicted": 0.4977,
+      "observed": 0.511
      },
      {
-      "p_low": 0.5163,
-      "p_high": 0.548,
-      "n": 584,
-      "mean_predicted": 0.5335,
-      "observed": 0.524
+      "p_low": 0.5161,
+      "p_high": 0.5478,
+      "n": 591,
+      "mean_predicted": 0.5332,
+      "observed": 0.5212
      },
      {
-      "p_low": 0.548,
+      "p_low": 0.5478,
       "p_high": 1.0,
-      "n": 585,
-      "mean_predicted": 0.5705,
-      "observed": 0.494
+      "n": 592,
+      "mean_predicted": 0.5703,
+      "observed": 0.4966
      }
     ],
-    "mean_excess_when_confident_up": 0.00231,
-    "mean_excess_when_confident_down": -0.02298,
-    "n_confident_up": 547,
-    "n_confident_down": 655
+    "mean_excess_when_confident_up": 0.00265,
+    "mean_excess_when_confident_down": -0.0239,
+    "n_confident_up": 549,
+    "n_confident_down": 666
    }
   }
  },
@@ -294,30 +294,30 @@
   "federal_register": {
    "name": "Federal Register (rules, proposed rules, presidential documents)",
    "ok": true,
-   "detail": "fetched 2026-09-15",
-   "count": 41192,
+   "detail": "fetched 2026-09-16",
+   "count": 41204,
    "url": "https://www.federalregister.gov/developers/documentation/api/v1"
   },
   "public_inspection": {
    "name": "Federal Register public inspection (forthcoming)",
    "ok": true,
    "detail": "fetched",
-   "count": 104,
+   "count": 73,
    "url": "https://www.federalregister.gov/public-inspection/current"
   },
   "house": {
    "name": "House Clerk periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-15",
-   "count": 17807,
+   "detail": "fetched 2026-09-16",
+   "count": 17819,
    "url": "https://disclosures-clerk.house.gov/FinancialDisclosure",
-   "filings_indexed": 1814,
+   "filings_indexed": 1817,
    "filings_paper_unparsed": 240
   },
   "senate": {
    "name": "Senate eFD periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-15",
+   "detail": "fetched 2026-09-16",
    "count": 3837,
    "url": "https://efdsearch.senate.gov/search/",
    "filings_indexed": 464,
@@ -333,8 +333,8 @@
   "prices": {
    "name": "Daily prices (yfinance)",
    "ok": true,
-   "detail": "fetched 2026-09-15",
-   "count": 1999,
+   "detail": "fetched 2026-09-16",
+   "count": 2000,
    "url": "https://github.com/ranaroussi/yfinance"
   }
  }
