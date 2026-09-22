@@ -44,14 +44,14 @@
     "p_beat_60": 0.586,
     "expected_buy_disclosures": 2.39
    },
-   "last_date": "2026-09-21",
-   "last_price": 498.47,
-   "return": -0.02633,
-   "benchmark_return": -0.02216,
-   "excess_return": -0.00417,
-   "trading_days_held": 11,
-   "value": 1460.51,
-   "pnl": -39.49
+   "last_date": "2026-09-22",
+   "last_price": 494.13,
+   "return": -0.03481,
+   "benchmark_return": -0.02638,
+   "excess_return": -0.00843,
+   "trading_days_held": 12,
+   "value": 1447.79,
+   "pnl": -52.21
   },
   {
    "id": 2,
@@ -78,14 +78,14 @@
     "p_beat_60": 0.5843,
     "expected_buy_disclosures": 2.72
    },
-   "last_date": "2026-09-21",
-   "last_price": 205.635,
-   "return": -0.04931,
-   "benchmark_return": -0.04319,
-   "excess_return": -0.00612,
-   "trading_days_held": 11,
-   "value": 1426.04,
-   "pnl": -73.96
+   "last_date": "2026-09-22",
+   "last_price": 198.86,
+   "return": -0.08063,
+   "benchmark_return": -0.06637,
+   "excess_return": -0.01426,
+   "trading_days_held": 12,
+   "value": 1379.06,
+   "pnl": -120.94
   },
   {
    "id": 3,
@@ -112,14 +112,14 @@
     "p_beat_60": 0.5751,
     "expected_buy_disclosures": 2.72
    },
-   "last_date": "2026-09-21",
-   "last_price": 86.59,
-   "return": -0.025,
-   "benchmark_return": -0.04319,
-   "excess_return": 0.01819,
-   "trading_days_held": 11,
-   "value": 1462.5,
-   "pnl": -37.5
+   "last_date": "2026-09-22",
+   "last_price": 82.895,
+   "return": -0.0666,
+   "benchmark_return": -0.06637,
+   "excess_return": -0.00023,
+   "trading_days_held": 12,
+   "value": 1400.1,
+   "pnl": -99.9
   },
   {
    "id": 4,
@@ -147,14 +147,14 @@
     "p_beat_60": 0.461,
     "expected_buy_disclosures": 4.12
    },
-   "last_date": "2026-09-21",
-   "last_price": 150.77,
-   "return": 0.00051,
-   "benchmark_return": -0.02537,
-   "excess_return": 0.02588,
-   "trading_days_held": 11,
-   "value": 1500.77,
-   "pnl": 0.77
+   "last_date": "2026-09-22",
+   "last_price": 152.4,
+   "return": 0.01133,
+   "benchmark_return": -0.01462,
+   "excess_return": 0.02595,
+   "trading_days_held": 12,
+   "value": 1517.0,
+   "pnl": 17.0
   },
   {
    "id": 5,
@@ -185,14 +185,14 @@
     "p_beat_60": null,
     "expected_buy_disclosures": 5.88
    },
-   "last_date": "2026-09-21",
-   "last_price": 730.96,
-   "return": 0.18985,
-   "benchmark_return": 0.04203,
-   "excess_return": 0.14782,
-   "trading_days_held": 11,
-   "value": 1189.85,
-   "pnl": 189.85
+   "last_date": "2026-09-22",
+   "last_price": 748.3422,
+   "return": 0.21814,
+   "benchmark_return": 0.0485,
+   "excess_return": 0.16964,
+   "trading_days_held": 12,
+   "value": 1218.14,
+   "pnl": 218.14
   },
   {
    "id": 6,
@@ -219,14 +219,14 @@
     "p_beat_60": 0.5376,
     "expected_buy_disclosures": 2.39
    },
-   "last_date": "2026-09-21",
-   "last_price": 692.74,
-   "return": 0.00736,
-   "benchmark_return": -0.02216,
-   "excess_return": 0.02952,
-   "trading_days_held": 11,
-   "value": 1007.36,
-   "pnl": 7.36
+   "last_date": "2026-09-22",
+   "last_price": 693.185,
+   "return": 0.00801,
+   "benchmark_return": -0.02638,
+   "excess_return": 0.03439,
+   "trading_days_held": 12,
+   "value": 1008.01,
+   "pnl": 8.01
   },
   {
    "id": 7,
@@ -252,14 +252,14 @@
     "p_beat_60": 0.5564,
     "expected_buy_disclosures": 2.72
    },
-   "last_date": "2026-09-21",
-   "last_price": 106.98,
-   "return": -0.02798,
-   "benchmark_return": -0.04319,
-   "excess_return": 0.01521,
-   "trading_days_held": 11,
-   "value": 972.02,
-   "pnl": -27.98
+   "last_date": "2026-09-22",
+   "last_price": 99.88,
+   "return": -0.0925,
+   "benchmark_return": -0.06637,
+   "excess_return": -0.02613,
+   "trading_days_held": 12,
+   "value": 907.5,
+   "pnl": -92.5
   },
   {
    "id": 8,
@@ -285,14 +285,14 @@
     "p_beat_60": 0.5834,
     "expected_buy_disclosures": 2.39
    },
-   "last_date": "2026-09-21",
-   "last_price": 1025.38,
-   "return": 0.03601,
-   "benchmark_return": -0.02216,
-   "excess_return": 0.05817,
-   "trading_days_held": 11,
-   "value": 1036.01,
-   "pnl": 36.01
+   "last_date": "2026-09-22",
+   "last_price": 1046.85,
+   "return": 0.0577,
+   "benchmark_return": -0.02638,
+   "excess_return": 0.08408,
+   "trading_days_held": 12,
+   "value": 1057.7,
+   "pnl": 57.7
   }
  ],
  "stats": {
@@ -300,16 +300,16 @@
   "n_closed": 0,
   "n_total": 8,
   "open_amount": 10000,
-  "open_value": 10055.06,
-  "open_pnl": 55.06,
+  "open_value": 9935.3,
+  "open_pnl": -64.7,
   "closed_pnl": 0,
   "hit_rate_closed": null,
   "avg_excess_closed": null,
   "avg_return_closed": null,
-  "avg_excess_open": 0.03556,
+  "avg_excess_open": 0.03313,
   "cash": 0,
-  "portfolio_value": 10055.06,
-  "portfolio_return": 0.00551
+  "portfolio_value": 9935.3,
+  "portfolio_return": -0.00647
  },
- "updated": "2026-09-21"
+ "updated": "2026-09-22"
 }
