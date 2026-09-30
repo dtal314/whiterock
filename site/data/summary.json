@@ -1,7 +1,7 @@
 {
  "app": "WhiteRock",
  "version": "0.1.0",
- "generated_at": "2026-09-29T16:56:34+00:00",
+ "generated_at": "2026-09-30T16:52:28+00:00",
  "disclaimer": "WhiteRock forecasts whether related trades are likely to be publicly disclosed later. It is built only from records that are already public: the Federal Register, House and Senate STOCK Act filings, the congress-legislators roster, and market prices. It cannot see any trade before it is disclosed, it holds no nonpublic information, and it is not investment advice.",
  "horizons": [
   5,
@@ -12,274 +12,274 @@
  "recent_action_days": 45,
  "market_benchmark": "SPY",
  "counts": {
-  "documents": 41365,
-  "linked_documents": 7219,
-  "recent_actions": 110,
-  "forthcoming": 16,
+  "documents": 41389,
+  "linked_documents": 7231,
+  "recent_actions": 122,
+  "forthcoming": 21,
   "transactions": 21842,
   "transactions_in_universe": 5464,
   "politicians_with_trades": 216,
   "tickers": 130,
   "sectors": 21,
-  "outperformance_events": 37734,
-  "price_rows": 2009,
-  "latest_price_date": "2026-09-29",
+  "outperformance_events": 37764,
+  "price_rows": 2010,
+  "latest_price_date": "2026-09-30",
   "buy_signals": 20,
   "recommendations_open": 8
  },
  "models": {
   "disclosure": {
    "metrics": {
-    "holdout_start": "2026-01-01",
-    "n_train": 92694,
-    "n_holdout": 25326,
-    "log_loss": 0.0865,
-    "log_loss_base_rate": 0.1111,
-    "auc_buy": 0.8765,
-    "brier_buy": 0.00924,
-    "brier_buy_base_rate": 0.00974,
+    "holdout_start": "2026-02-01",
+    "n_train": 96810,
+    "n_holdout": 25641,
+    "log_loss": 0.0837,
+    "log_loss_base_rate": 0.1114,
+    "auc_buy": 0.8775,
+    "brier_buy": 0.00835,
+    "brier_buy_base_rate": 0.00904,
     "calibration_buy": [
      {
       "p_low": 0.0,
-      "p_high": 0.0002,
-      "n": 5065,
+      "p_high": 0.0003,
+      "n": 5124,
       "mean_predicted": 0.0002,
       "observed": 0.0
      },
      {
-      "p_low": 0.0002,
-      "p_high": 0.0007,
-      "n": 5065,
+      "p_low": 0.0003,
+      "p_high": 0.0008,
+      "n": 5132,
       "mean_predicted": 0.0005,
-      "observed": 0.0022
+      "observed": 0.0029
      },
      {
-      "p_low": 0.0007,
+      "p_low": 0.0008,
       "p_high": 0.0018,
-      "n": 5066,
+      "n": 5129,
       "mean_predicted": 0.0012,
-      "observed": 0.0032
+      "observed": 0.0019
      },
      {
       "p_low": 0.0018,
-      "p_high": 0.0092,
-      "n": 5064,
-      "mean_predicted": 0.0043,
-      "observed": 0.0055
+      "p_high": 0.0078,
+      "n": 5127,
+      "mean_predicted": 0.0037,
+      "observed": 0.0045
      },
      {
-      "p_low": 0.0092,
+      "p_low": 0.0078,
       "p_high": 1.0,
-      "n": 5066,
-      "mean_predicted": 0.0639,
-      "observed": 0.0383
+      "n": 5129,
+      "mean_predicted": 0.0579,
+      "observed": 0.0363
      }
     ],
-    "auc_sell": 0.8798,
-    "brier_sell": 0.00965,
-    "brier_sell_base_rate": 0.00954,
+    "auc_sell": 0.8879,
+    "brier_sell": 0.00964,
+    "brier_sell_base_rate": 0.01034,
     "calibration_sell": [
      {
       "p_low": 0.0,
-      "p_high": 0.0003,
-      "n": 5064,
+      "p_high": 0.0002,
+      "n": 5127,
       "mean_predicted": 0.0001,
       "observed": 0.0006
      },
      {
-      "p_low": 0.0003,
-      "p_high": 0.0009,
-      "n": 5066,
-      "mean_predicted": 0.0005,
-      "observed": 0.0006
+      "p_low": 0.0002,
+      "p_high": 0.0007,
+      "n": 5128,
+      "mean_predicted": 0.0004,
+      "observed": 0.0004
      },
      {
-      "p_low": 0.0009,
-      "p_high": 0.002,
-      "n": 5066,
-      "mean_predicted": 0.0014,
-      "observed": 0.0028
+      "p_low": 0.0007,
+      "p_high": 0.0018,
+      "n": 5130,
+      "mean_predicted": 0.0012,
+      "observed": 0.0023
      },
      {
-      "p_low": 0.002,
-      "p_high": 0.0053,
-      "n": 5064,
-      "mean_predicted": 0.0033,
-      "observed": 0.0057
+      "p_low": 0.0018,
+      "p_high": 0.0055,
+      "n": 5127,
+      "mean_predicted": 0.0031,
+      "observed": 0.0066
      },
      {
-      "p_low": 0.0053,
+      "p_low": 0.0055,
       "p_high": 1.0,
-      "n": 5066,
-      "mean_predicted": 0.0433,
-      "observed": 0.0385
+      "n": 5129,
+      "mean_predicted": 0.0354,
+      "observed": 0.0423
      }
     ],
     "holdout_positive_rate": {
-     "none": 0.9805,
-     "buy": 0.0098,
-     "sell": 0.0096
+     "none": 0.9804,
+     "buy": 0.0091,
+     "sell": 0.0105
     }
    },
    "base_rates": {
-    "none": 0.9717,
-    "buy": 0.0136,
-    "sell": 0.0148
+    "none": 0.972,
+    "buy": 0.0135,
+    "sell": 0.0145
    }
   },
   "outperformance": {
    "5": {
-    "n_train": 33573,
-    "n_holdout": 4053,
-    "holdout_start": "2025-09-29",
-    "base_rate_train": 0.494,
-    "auc": 0.5196,
-    "brier": 0.25022,
-    "brier_base_rate": 0.25014,
-    "base_rate_holdout": 0.509,
+    "n_train": 33595,
+    "n_holdout": 4049,
+    "holdout_start": "2025-09-30",
+    "base_rate_train": 0.4941,
+    "auc": 0.519,
+    "brier": 0.25025,
+    "brier_base_rate": 0.25013,
+    "base_rate_holdout": 0.508,
     "calibration": [
      {
       "p_low": 0.0,
       "p_high": 0.4717,
-      "n": 811,
+      "n": 810,
       "mean_predicted": 0.4551,
-      "observed": 0.4661
+      "observed": 0.4642
      },
      {
       "p_low": 0.4717,
       "p_high": 0.486,
       "n": 810,
-      "mean_predicted": 0.4795,
-      "observed": 0.5185
+      "mean_predicted": 0.4797,
+      "observed": 0.516
      },
      {
       "p_low": 0.486,
-      "p_high": 0.497,
-      "n": 811,
+      "p_high": 0.4971,
+      "n": 809,
       "mean_predicted": 0.4913,
-      "observed": 0.5105
+      "observed": 0.5117
      },
      {
-      "p_low": 0.497,
-      "p_high": 0.5153,
+      "p_low": 0.4971,
+      "p_high": 0.5155,
       "n": 810,
-      "mean_predicted": 0.5057,
-      "observed": 0.5358
+      "mean_predicted": 0.5059,
+      "observed": 0.537
      },
      {
-      "p_low": 0.5153,
+      "p_low": 0.5155,
       "p_high": 1.0,
-      "n": 811,
-      "mean_predicted": 0.5377,
-      "observed": 0.5142
+      "n": 810,
+      "mean_predicted": 0.5379,
+      "observed": 0.5111
      }
     ],
-    "mean_excess_when_confident_up": -0.00187,
+    "mean_excess_when_confident_up": -0.0015,
     "mean_excess_when_confident_down": -0.01419,
-    "n_confident_up": 219,
+    "n_confident_up": 222,
     "n_confident_down": 236
    },
    "20": {
-    "n_train": 33573,
-    "n_holdout": 3780,
-    "holdout_start": "2025-09-29",
+    "n_train": 33595,
+    "n_holdout": 3778,
+    "holdout_start": "2025-09-30",
     "base_rate_train": 0.4917,
-    "auc": 0.5215,
-    "brier": 0.25058,
+    "auc": 0.5213,
+    "brier": 0.25059,
     "brier_base_rate": 0.25038,
-    "base_rate_holdout": 0.5188,
+    "base_rate_holdout": 0.5185,
     "calibration": [
      {
       "p_low": 0.0,
       "p_high": 0.4606,
       "n": 756,
       "mean_predicted": 0.4439,
-      "observed": 0.4762
+      "observed": 0.4735
      },
      {
       "p_low": 0.4606,
       "p_high": 0.4785,
-      "n": 756,
+      "n": 755,
       "mean_predicted": 0.4697,
-      "observed": 0.5026
+      "observed": 0.5046
      },
      {
       "p_low": 0.4785,
-      "p_high": 0.4972,
+      "p_high": 0.4971,
       "n": 756,
-      "mean_predicted": 0.4879,
-      "observed": 0.5503
+      "mean_predicted": 0.4878,
+      "observed": 0.5542
      },
      {
-      "p_low": 0.4972,
-      "p_high": 0.5289,
-      "n": 756,
-      "mean_predicted": 0.5127,
-      "observed": 0.545
+      "p_low": 0.4971,
+      "p_high": 0.5294,
+      "n": 755,
+      "mean_predicted": 0.5131,
+      "observed": 0.543
      },
      {
-      "p_low": 0.5289,
+      "p_low": 0.5294,
       "p_high": 1.0,
       "n": 756,
-      "mean_predicted": 0.5473,
-      "observed": 0.5198
+      "mean_predicted": 0.5477,
+      "observed": 0.5172
      }
     ],
-    "mean_excess_when_confident_up": 0.00292,
-    "mean_excess_when_confident_down": -0.02327,
-    "n_confident_up": 273,
-    "n_confident_down": 429
+    "mean_excess_when_confident_up": 0.00411,
+    "mean_excess_when_confident_down": -0.02362,
+    "n_confident_up": 284,
+    "n_confident_down": 432
    },
    "60": {
-    "n_train": 33573,
+    "n_train": 33595,
     "n_holdout": 3085,
-    "holdout_start": "2025-09-29",
+    "holdout_start": "2025-09-30",
     "base_rate_train": 0.4942,
-    "auc": 0.5209,
-    "brier": 0.25097,
+    "auc": 0.5217,
+    "brier": 0.25089,
     "brier_base_rate": 0.25013,
     "base_rate_holdout": 0.5079,
     "calibration": [
      {
       "p_low": 0.0,
-      "p_high": 0.445,
+      "p_high": 0.4449,
       "n": 617,
-      "mean_predicted": 0.4146,
-      "observed": 0.4733
+      "mean_predicted": 0.4143,
+      "observed": 0.4749
      },
      {
-      "p_low": 0.445,
-      "p_high": 0.4777,
+      "p_low": 0.4449,
+      "p_high": 0.477,
       "n": 617,
-      "mean_predicted": 0.4609,
-      "observed": 0.5008
+      "mean_predicted": 0.4605,
+      "observed": 0.4976
      },
      {
-      "p_low": 0.4777,
-      "p_high": 0.5145,
+      "p_low": 0.477,
+      "p_high": 0.5144,
       "n": 617,
-      "mean_predicted": 0.4963,
-      "observed": 0.5122
+      "mean_predicted": 0.4959,
+      "observed": 0.5138
      },
      {
-      "p_low": 0.5145,
-      "p_high": 0.5474,
+      "p_low": 0.5144,
+      "p_high": 0.5473,
       "n": 617,
-      "mean_predicted": 0.5323,
-      "observed": 0.5203
+      "mean_predicted": 0.5321,
+      "observed": 0.517
      },
      {
-      "p_low": 0.5474,
+      "p_low": 0.5473,
       "p_high": 1.0,
       "n": 617,
       "mean_predicted": 0.571,
-      "observed": 0.5332
+      "observed": 0.5365
      }
     ],
-    "mean_excess_when_confident_up": 0.022,
-    "mean_excess_when_confident_down": -0.0228,
-    "n_confident_up": 565,
-    "n_confident_down": 710
+    "mean_excess_when_confident_up": 0.02061,
+    "mean_excess_when_confident_down": -0.02291,
+    "n_confident_up": 566,
+    "n_confident_down": 719
    }
   }
  },
@@ -294,21 +294,21 @@
   "federal_register": {
    "name": "Federal Register (rules, proposed rules, presidential documents)",
    "ok": true,
-   "detail": "fetched 2026-09-29",
-   "count": 41365,
+   "detail": "fetched 2026-09-30",
+   "count": 41389,
    "url": "https://www.federalregister.gov/developers/documentation/api/v1"
   },
   "public_inspection": {
    "name": "Federal Register public inspection (forthcoming)",
    "ok": true,
    "detail": "fetched",
-   "count": 128,
+   "count": 112,
    "url": "https://www.federalregister.gov/public-inspection/current"
   },
   "house": {
    "name": "House Clerk periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-29",
+   "detail": "fetched 2026-09-30",
    "count": 17966,
    "url": "https://disclosures-clerk.house.gov/FinancialDisclosure",
    "filings_indexed": 1829,
@@ -317,7 +317,7 @@
   "senate": {
    "name": "Senate eFD periodic transaction reports",
    "ok": true,
-   "detail": "fetched 2026-09-29",
+   "detail": "fetched 2026-09-30",
    "count": 3876,
    "url": "https://efdsearch.senate.gov/search/",
    "filings_indexed": 468,
@@ -333,8 +333,8 @@
   "prices": {
    "name": "Daily prices (yfinance)",
    "ok": true,
-   "detail": "fetched 2026-09-29",
-   "count": 2009,
+   "detail": "fetched 2026-09-30",
+   "count": 2010,
    "url": "https://github.com/ranaroussi/yfinance"
   }
  }
